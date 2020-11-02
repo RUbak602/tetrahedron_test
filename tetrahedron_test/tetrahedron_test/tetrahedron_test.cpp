@@ -3,7 +3,8 @@
 //typedef double f !!!
 #include"vector3d.h"
 #include<iostream>
-//Funtion return true if num1 and num2 have same sign
+
+//Function return true if num1 and num2 have same sign
 bool sameSign(double num1, double num2)
 {
     return num1 >= 0 && num2 >= 0 || num1 < 0 && num2 < 0;
@@ -24,6 +25,7 @@ bool PointInTetrahedron(vector3d vertex1, vector3d vertex2, vector3d vertex3, ve
         SameSide(vertex3, vertex4, vertex1, vertex2, point) &&
         SameSide(vertex4, vertex1, vertex2, vertex3, point);
 }
+
 //Square of triangle based on vector1 and vector2
 double squareOfTriangle(vector3d vector1, vector3d vector2)
 {
@@ -51,7 +53,8 @@ int main()
     vector3d vertex4 = { -4,6,-3 };
     vector3d point = { -0.5,2.75,1.25 };
     std::cout << std::boolalpha;
-    std::cout << "This point in tetrahedron: " << PointInTetrahedron(vertex1, vertex2, vertex3, vertex4, point)<<std::endl;
+    std::cout << "This point"<<"("<<point.x<<","<< point.y<<","<<point.z<<")"<<" in tetrahedron: "
+        << PointInTetrahedron(vertex1, vertex2, vertex3, vertex4, point)<<std::endl;
 
     vector3d centerTetra = centerSphereInTetra(vertex1, vertex2, vertex3, vertex4);
     std::cout << "Center of sphere in tetrahedron (point equidistant from surface): ";
